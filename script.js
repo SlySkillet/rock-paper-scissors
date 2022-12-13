@@ -51,13 +51,10 @@ const playRound = function(playerChoice, computerChoice){
     console.log(result);
 }
 
-
-playRound();
-
-
-
-
-
-
-
-
+const game = function() {
+    for (let i = 0 ; i < 5 ; i ++) {
+        if (playRound() === 'You win!') {
+            playerWin += 1;
+        } else {computerWin += 1}
+    }
+}
