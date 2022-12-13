@@ -3,3 +3,9 @@ const getComputerChoice = function(){
     return computerChoice;
 }
 
+const playRound = function(playerChoice, computerChoice){
+    playerChoice = prompt ('Rock, Paper or Scissors?');
+    playerChoice = playerChoice.toUpperCase();
+}
+
+playRound();
