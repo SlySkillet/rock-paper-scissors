@@ -56,9 +56,29 @@ const playRound = function(playerChoice, computerChoice){
     } //draw outcome   
    
 }
-playRound();
+
+//GAME OF 5//
+let playerWin = 0
+let computerWin = 0
+const game = function() {
+    for (let i = 0 ; i < 5 ; i ++) {
+        playRound() ;
+        if (result === 'Win') {
+            playerWin += 1 ;
+        } else {computerWin += 1}
+        console.log(playerWin, computerWin);
+        if (playerWin === 3) {
+            console.log (`You win! ${playerWin} to ${computerWin}!`);
+            break;
+        } else if (computerWin === 3) {
+            console.log (`You lose! ${computerWin} to ${playerWin}`);
+            break;
+        }
+    }
+}
 
 
+game()
 
 //ORIGINAL PLAYROUND FUNCTION//
 
@@ -91,13 +111,3 @@ playRound();
 //     } //draw outcome   
 //     console.log(result);
 // }
-
-//GAME OF 5//
-
-const game = function() {
-    for (let i = 0 ; i < 5 ; i ++) {
-        if (playRound() === 'You win!') {
-            playerWin += 1;
-        } else {computerWin += 1}
-    }
-}
