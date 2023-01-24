@@ -1,5 +1,5 @@
 html {
-  font-size: 62.5%;
+  font-size: 100%;
   box-sizing: border-box;
 }
 
@@ -10,9 +10,56 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 header {
   position: relative;
   height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(158, 6, 233, 0.3);
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 150px;
+  padding-right: 150px;
+  border-radius: 9px;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+}
+
+.player {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: rgb(235, 92, 116, 0.8);
+  height: 150px;
+  width: 140px;
+  border-radius: 9px;
+}
+
+.middle {
+  display: flex;
+  flex-direction: row;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
 }
