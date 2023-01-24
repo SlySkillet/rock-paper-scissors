@@ -5,19 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie-edge" />
     <title>Rock Paper Scissors</title>
-    <link rel="style-sheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <script src="script.js"></script>
     <h1>:: Rock Paper Scissors Project ::</h1>
     <p>Odin Project JavaScript Fundamentals</p>
     <!-- <p>Open console to play the game! (cmd option j)</p> -->
-    <div class="result"></div>
-    <div class="score-player1"></div>
-    <div class="score-player2"></div>
+    <section class="player player--0">
+      <h2 class="name" id="name--0">Player</h2>
+      <p class="score" id="score--0">0</p>
+    </section>
+    <section class="player player--1">
+      <h2 class="name" id="name--1">Computer</h2>
+      <p class="score" id="score--1">0</p>
+    </section>
 
-    <button>Rock</button>
-    <button>Paper</button>
-    <button>Scissors</button>
+    <img src="" alt="Rock Paper or Scissors" class="throw" id="player--0" />
+    <img src="" alt="Rock Paper or Scissors" class="throw" id="player--1" />
+
+    <div class="result">
+      <p>::R::P::S::</p>
+    </div>
+
+    <button class="btn btn--0">Rock</button>
+    <button class="btn btn--1">Paper</button>
+    <button class="btn btn--2">Scissors</button>
+    <button class="btn btn--new">New Game</button>
   </body>
 </html>
