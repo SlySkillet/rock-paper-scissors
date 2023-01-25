@@ -42,7 +42,10 @@ const playRoundNew = function () {
     roundResult.textContent = 'ROCK SMASHES SCISSORS - YOU LOSE';
   }
 };
-//
+//add images to button fuctionality
+//add scores to playRound
+//add game winner functionality
+//add newGame initializer function
 
 //button functionality
 btnRock.addEventListener('click', function () {
