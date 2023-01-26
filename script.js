@@ -11,9 +11,19 @@ let computerThrow = document.querySelector('.throw--1');
 let playerScore = document.getElementById('score--0');
 let computerScore = document.getElementById('score--1');
 
-let computerChoice;
-let playerChoice;
+let computerChoice, playerChoice;
 let scores = [0, 0];
+
+const init = function () {
+  scores = [0, 0];
+  mainBody.classList.remove('win');
+  mainBody.classList.remove('lose');
+  playerThrow.textContent = '';
+  computerThrow.textContent = '';
+  playerScore.textContent = 0;
+  computerScore.textContent = 0;
+  roundResult.textContent = '::RPS::';
+};
 
 //computer choice
 const getComputerChoice = function () {
@@ -94,6 +104,7 @@ const playRoundNew = function () {
   console.log(scores);
 };
 
+btnNew.addEventListener('click', init);
 //add newGame initializer function
 
 // getComputerChoice();
