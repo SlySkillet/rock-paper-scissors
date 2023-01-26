@@ -14,17 +14,6 @@ let computerScore = document.getElementById('score--1');
 let computerChoice, playerChoice;
 let scores = [0, 0];
 
-const init = function () {
-  scores = [0, 0];
-  mainBody.classList.remove('win');
-  mainBody.classList.remove('lose');
-  playerThrow.textContent = '';
-  computerThrow.textContent = '';
-  playerScore.textContent = 0;
-  computerScore.textContent = 0;
-  roundResult.textContent = '::RPS::';
-};
-
 //computer choice
 const getComputerChoice = function () {
   computerChoice = Math.floor(Math.random() * 3);
@@ -43,30 +32,37 @@ const getComputerChoice = function () {
   }
 };
 
-//button functionality -- player choice
+//button functionality
 btnRock.addEventListener('click', function () {
   playerChoice = 'ROCK';
   playerThrow.textContent = '🗿';
-  console.log(playerChoice);
   playRoundNew();
 });
 btnPaper.addEventListener('click', function () {
   playerChoice = 'PAPER';
   playerThrow.textContent = '📃';
-  console.log(playerChoice);
   playRoundNew();
 });
 btnScissors.addEventListener('click', function () {
   playerChoice = 'SCISSORS';
   playerThrow.textContent = '✄';
-  console.log(playerChoice);
   playRoundNew();
 });
+
+const init = function () {
+  scores = [0, 0];
+  mainBody.classList.remove('win');
+  mainBody.classList.remove('lose');
+  playerThrow.textContent = '';
+  computerThrow.textContent = '';
+  playerScore.textContent = 0;
+  computerScore.textContent = 0;
+  roundResult.textContent = '::RPS::';
+};
 
 //play round
 const playRoundNew = function () {
   computerChoice = getComputerChoice();
-  console.log(computerChoice);
   if (playerChoice === computerChoice) {
     roundResult.textContent = '~~DRAW~~';
   } else if (playerChoice === 'ROCK' && computerChoice === 'SCISSORS') {
@@ -95,17 +91,13 @@ const playRoundNew = function () {
     computerScore.textContent = scores[1];
   }
   if (scores[0] === 3) {
-    console.log('playerWins');
     mainBody.classList.add('win');
   } else if (scores[1] === 3) {
-    console.log('computer wins');
     mainBody.classList.add('lose');
   }
-  console.log(scores);
 };
 
 btnNew.addEventListener('click', init);
-//add newGame initializer function
 
 // getComputerChoice();
 
