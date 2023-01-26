@@ -7,10 +7,14 @@ const btnScissors = document.querySelector('.btn--2');
 let roundResult = document.querySelector('.result');
 let playerThrow = document.querySelector('.throw--0');
 let computerThrow = document.querySelector('.throw--1');
+let playerScore = document.getElementById('score--0');
+let computerScore = document.getElementById('score--1');
 
 let computerChoice;
 let playerChoice;
+let scores = [0, 0];
 
+//computer choice
 const getComputerChoice = function () {
   computerChoice = Math.floor(Math.random() * 3);
   if (computerChoice === 0) {
@@ -28,31 +32,7 @@ const getComputerChoice = function () {
   }
 };
 
-const playRoundNew = function () {
-  computerChoice = getComputerChoice();
-  console.log(computerChoice);
-  if (playerChoice === computerChoice) {
-    roundResult.textContent = '~~DRAW~~';
-  } else if (playerChoice === 'ROCK' && computerChoice === 'SCISSORS') {
-    roundResult.textContent = 'ROCK SMASHES SCISSORS - YOU WIN!';
-  } else if (playerChoice === 'PAPER' && computerChoice === 'ROCK') {
-    roundResult.textContent = 'PAPER COVERS ROCK - YOU WIN!';
-  } else if (playerChoice === 'SCISSORS' && computerChoice === 'PAPER') {
-    roundResult.textContent = 'SCISSORS CUT PAPER - YOU WIN!';
-  } else if (playerChoice === 'ROCK' && computerChoice === 'PAPER') {
-    roundResult.textContent = 'PAPER COVERS ROCK - YOU LOSE!';
-  } else if (playerChoice === 'PAPER' && computerChoice === 'SCISSORS') {
-    roundResult.textContent = 'SCISSORS CUT PAPER - YOU LOSE!';
-  } else if (playerChoice === 'SCISSORS' && computerChoice === 'ROCK') {
-    roundResult.textContent = 'ROCK SMASHES SCISSORS - YOU LOSE';
-  }
-};
-//add images to button fuctionality
-//add scores to playRound
-//add game winner functionality
-//add newGame initializer function
-
-//button functionality
+//button functionality -- player choice
 btnRock.addEventListener('click', function () {
   playerChoice = 'ROCK';
   playerThrow.textContent = '🗿';
@@ -71,6 +51,49 @@ btnScissors.addEventListener('click', function () {
   console.log(playerChoice);
   playRoundNew();
 });
+
+//play round
+const playRoundNew = function () {
+  computerChoice = getComputerChoice();
+  console.log(computerChoice);
+  if (playerChoice === computerChoice) {
+    roundResult.textContent = '~~DRAW~~';
+  } else if (playerChoice === 'ROCK' && computerChoice === 'SCISSORS') {
+    roundResult.textContent = 'ROCK SMASHES SCISSORS - YOU WIN!';
+    scores[0] += 1;
+    playerScore.textContent = scores[0];
+  } else if (playerChoice === 'PAPER' && computerChoice === 'ROCK') {
+    roundResult.textContent = 'PAPER COVERS ROCK - YOU WIN!';
+    scores[0] += 1;
+    playerScore.textContent = scores[0];
+  } else if (playerChoice === 'SCISSORS' && computerChoice === 'PAPER') {
+    roundResult.textContent = 'SCISSORS CUT PAPER - YOU WIN!';
+    scores[0] += 1;
+    playerScore.textContent = scores[0];
+  } else if (playerChoice === 'ROCK' && computerChoice === 'PAPER') {
+    roundResult.textContent = 'PAPER COVERS ROCK - YOU LOSE!';
+    scores[1] += 1;
+    computerScore.textContent = scores[1];
+  } else if (playerChoice === 'PAPER' && computerChoice === 'SCISSORS') {
+    roundResult.textContent = 'SCISSORS CUT PAPER - YOU LOSE!';
+    scores[1] += 1;
+    computerScore.textContent = scores[1];
+  } else if (playerChoice === 'SCISSORS' && computerChoice === 'ROCK') {
+    roundResult.textContent = 'ROCK SMASHES SCISSORS - YOU LOSE';
+    scores[1] += 1;
+    computerScore.textContent = scores[1];
+  }
+  if (scores[0] === 3) {
+    console.log('playerWins');
+  } else if (scores[1] === 3) {
+    console.log('computer wins');
+  }
+  console.log(scores);
+};
+
+//add scores to playRound
+//add game winner functionality
+//add newGame initializer function
 
 // getComputerChoice();
 
