@@ -5,6 +5,8 @@ const btnRock = document.querySelector('.btn--0');
 const btnPaper = document.querySelector('.btn--1');
 const btnScissors = document.querySelector('.btn--2');
 let roundResult = document.querySelector('.result');
+let playerThrow = document.querySelector('.throw--0');
+let computerThrow = document.querySelector('.throw--1');
 
 let computerChoice;
 let playerChoice;
@@ -13,12 +15,15 @@ const getComputerChoice = function () {
   computerChoice = Math.floor(Math.random() * 3);
   if (computerChoice === 0) {
     computerChoice = 'ROCK';
+    computerThrow.textContent = '🗿';
     return computerChoice;
   } else if (computerChoice === 1) {
     computerChoice = 'PAPER';
+    computerThrow.textContent = '📃';
     return computerChoice;
   } else {
     computerChoice = 'SCISSORS';
+    computerThrow.textContent = '✄';
     return computerChoice;
   }
 };
@@ -50,16 +55,19 @@ const playRoundNew = function () {
 //button functionality
 btnRock.addEventListener('click', function () {
   playerChoice = 'ROCK';
+  playerThrow.textContent = '🗿';
   console.log(playerChoice);
   playRoundNew();
 });
 btnPaper.addEventListener('click', function () {
   playerChoice = 'PAPER';
+  playerThrow.textContent = '📃';
   console.log(playerChoice);
   playRoundNew();
 });
 btnScissors.addEventListener('click', function () {
   playerChoice = 'SCISSORS';
+  playerThrow.textContent = '✄';
   console.log(playerChoice);
   playRoundNew();
 });
