@@ -32,6 +32,18 @@ const getComputerChoice = function () {
   }
 };
 
+// initialize function
+const init = function () {
+  scores = [0, 0];
+  mainBody.classList.remove('win');
+  mainBody.classList.remove('lose');
+  playerThrow.textContent = '';
+  computerThrow.textContent = '';
+  playerScore.textContent = 0;
+  computerScore.textContent = 0;
+  roundResult.textContent = '::RPS::';
+};
+
 //button functionality
 btnRock.addEventListener('click', function () {
   playerChoice = 'ROCK';
@@ -49,16 +61,7 @@ btnScissors.addEventListener('click', function () {
   playRoundNew();
 });
 
-const init = function () {
-  scores = [0, 0];
-  mainBody.classList.remove('win');
-  mainBody.classList.remove('lose');
-  playerThrow.textContent = '';
-  computerThrow.textContent = '';
-  playerScore.textContent = 0;
-  computerScore.textContent = 0;
-  roundResult.textContent = '::RPS::';
-};
+btnNew.addEventListener('click', init);
 
 //play round
 const playRoundNew = function () {
@@ -96,87 +99,3 @@ const playRoundNew = function () {
     mainBody.classList.add('lose');
   }
 };
-
-btnNew.addEventListener('click', init);
-
-// getComputerChoice();
-
-// // let playerChoice;
-
-// const getPlayerChoice = function () {
-//   playerChoice = prompt('Rock, Paper or Scissors?');
-//   playerChoice = playerChoice.toUpperCase();
-//   return playerChoice;
-// };
-
-// getPlayerChoice();
-
-// const playRound = function (playerChoice, computerChoice) {
-//   playerChoice = getPlayerChoice();
-//   console.log(playerChoice);
-//   computerChoice = getComputerChoice();
-//   console.log(computerChoice);
-//   if (
-//     playerChoice !== 'ROCK' &&
-//     playerChoice !== 'PAPER' &&
-//     playerChoice !== 'SCISSORS'
-//   ) {
-//     alert('Check spelling!');
-//     playRound();
-//   } else if (playerChoice === 'ROCK' && computerChoice === 'PAPER') {
-//     result = 'Lose';
-//     console.log('You lose! Paper covers Rock!');
-//     return result;
-//   } else if (playerChoice === 'ROCK' && computerChoice === 'SCISSORS') {
-//     result = 'Win';
-//     console.log('You win! Rock smashes Scissors!');
-//     return result;
-//   } else if (playerChoice === 'PAPER' && computerChoice === 'ROCK') {
-//     result = 'Win';
-//     console.log('You win! Paper covers Rock!');
-//     return result;
-//   } else if (playerChoice === 'PAPER' && computerChoice === 'SCISSORS') {
-//     result = 'Lose';
-//     console.log('You lose! Scissors cut paper!');
-//     return result; // win/lose outcomes for Paper
-//   } else if (playerChoice === 'SCISSORS' && computerChoice === 'ROCK') {
-//     result = 'Lose';
-//     console.log('You lose! Rock smashes Scissors!');
-//     return result;
-//   } else if (playerChoice === 'SCISSORS' && computerChoice === 'PAPER') {
-//     result = 'Win';
-//     console.log('You win! Scissors cut paper!');
-//     return result; //win/lose outcomes for Scissors
-//   } else {
-//     alert('Draw!');
-//     playRound();
-//   } //draw outcome
-// };
-
-// playRound();
-
-// // GAME OF 5//
-// let playerWin = 0;
-// let computerWin = 0;
-// const game = function () {
-//   for (let i = 0; i < 5; i++) {
-//     playRound();
-//     if (result === 'Win') {
-//       playerWin += 1;
-//     } else {
-//       computerWin += 1;
-//     }
-//     console.log(
-//       `ROUND-${i + 1} SCORE: Player ${playerWin} Computer ${computerWin}`
-//     );
-//     if (playerWin === 3) {
-//       console.log(`You win! ${playerWin} to ${computerWin}!`);
-//       break;
-//     } else if (computerWin === 3) {
-//       console.log(`You lose! ${computerWin} to ${playerWin}`);
-//       break;
-//     }
-//   }
-// };
-
-// game();
