@@ -4,6 +4,7 @@ const btnNew = document.querySelector('.btn--new');
 const btnRock = document.querySelector('.btn--0');
 const btnPaper = document.querySelector('.btn--1');
 const btnScissors = document.querySelector('.btn--2');
+const mainBody = document.querySelector('.main');
 let roundResult = document.querySelector('.result');
 let playerThrow = document.querySelector('.throw--0');
 let computerThrow = document.querySelector('.throw--1');
@@ -85,14 +86,14 @@ const playRoundNew = function () {
   }
   if (scores[0] === 3) {
     console.log('playerWins');
+    mainBody.classList.add('win');
   } else if (scores[1] === 3) {
     console.log('computer wins');
+    mainBody.classList.add('lose');
   }
   console.log(scores);
 };
 
-//add scores to playRound
-//add game winner functionality
 //add newGame initializer function
 
 // getComputerChoice();
